@@ -1,14 +1,12 @@
 import React from 'react';
-import { View, Text, StyleSheet, Dimensions } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 
 // PlayerCard rediseñada: 2 columnas, número en fila superior (no absolute)
 export default function PlayerCard({ player }) {
   return (
     <View style={styles.card}>
       <View style={styles.topRow}>
-        <View style={styles.emojiBox}>
-          <Text style={styles.emoji}>{player.emoji || player.nombre.charAt(0)}</Text>
-        </View>
+        <View style={styles.leftSpace} />
         <View style={styles.numBoxInline}>
           <Text style={styles.numText}>#{player.numero}</Text>
         </View>
@@ -22,13 +20,14 @@ export default function PlayerCard({ player }) {
   );
 }
 
-const { width } = Dimensions.get('window');
 const cardWidth = '48%';
 
 const styles = StyleSheet.create({
   card: {
     width: cardWidth,
-    backgroundColor: '#fff',
+    backgroundColor: '#FFF9F0',
+    borderLeftWidth: 6,
+    borderLeftColor: '#FFD100',
     borderRadius: 10,
     padding: 10,
     marginBottom: 10,
@@ -48,15 +47,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginBottom: 8,
   },
-  emojiBox: {
+  leftSpace: {
     width: 40,
     height: 40,
-    borderRadius: 20,
-    backgroundColor: '#FFD100',
-    alignItems: 'center',
-    justifyContent: 'center',
   },
-  emoji: { fontSize: 16 },
   numBoxInline: {
     backgroundColor: '#0033A0',
     paddingHorizontal: 8,
@@ -75,11 +69,6 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontWeight: '700',
     color: '#111',
-    marginBottom: 4,
-  },
-  club: {
-    fontSize: 12,
-    color: '#666',
     marginBottom: 4,
   },
   position: {
