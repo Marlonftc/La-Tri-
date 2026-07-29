@@ -6,7 +6,7 @@ export default function PlayerCard({ player }) {
   return (
     <View style={styles.card}>
       <View style={styles.topRow}>
-        <View style={styles.leftSpace} />
+        <Text style={styles.leftSpace} />
         <View style={styles.numBoxInline}>
           <Text style={styles.numText}>#{player.numero}</Text>
         </View>

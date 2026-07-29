@@ -57,12 +57,12 @@ export default function SplashScreen({ onFinish }) {
       {/* Contenido centrado sobre las franjas */}
       <View style={styles.content} pointerEvents="none">
         <Animated.Image
-          source={require('../../assets/logo-ecuador.png')}
+          source={require('../../assets/España.png')}
           style={[styles.logo, { opacity: opacity, transform: [{ scale: scale }] }]}
           resizeMode="contain"
         />
 
-        <Animated.Text style={[styles.title, { opacity: textOpacity }]}>Ecuador - La Tri</Animated.Text>
+        <Animated.Text style={[styles.title, { opacity: textOpacity }]}>Somos la Roja</Animated.Text>
       </View>
     </View>
   );
@@ -83,15 +83,15 @@ const styles = StyleSheet.create({
   },
   yellow: {
     flex: 2,
-    backgroundColor: '#FFD100',
+    backgroundColor: '#ff0000',
   },
   blue: {
     flex: 1,
-    backgroundColor: '#0033A0',
+    backgroundColor: '#ffff04',
   },
   red: {
     flex: 1,
-    backgroundColor: '#CE1126',
+    backgroundColor: '#ff0000',
   },
   content: {
     flex: 1,

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, Text, Image, StyleSheet, ScrollView, TouchableOpacity, Alert, StatusBar } from 'react-native';
 import PlayerCard from '../components/PlayerCard';
 import HighlightCard from '../components/HighlightCard';
@@ -7,8 +7,18 @@ import highlights from '../data/highlights';
 
 // HomeScreen principal: encabezado, datos básicos, convocados y destacados
 export default function HomeScreen() {
+  const [activeTab, setActiveTab] = useState('home');
+
+  const tabs = [
+    { key: 'home', label: 'Home' },
+    { key: 'espana', label: 'España' },
+    { key: 'about', label: 'Acerca de ' },
+  ];
+
   const handleAlentar = () => {
-    Alert.alert('¡Vamos Ecuador, sí se puede!');
+    Alert.alert('Alentar a la tri');
+  
+   
   };
 
   // Agrupar por 'categoria' (campo presente en src/data/players.js)
@@ -20,54 +30,73 @@ export default function HomeScreen() {
 
   return (
     <View style={[styles.root, { paddingTop: StatusBar.currentHeight || 24 }]}> 
-      <ScrollView contentContainerStyle={styles.container}>
-        {/* Encabezado con logo y títulos */}
-        <View style={styles.headerBox}>
-          <Image source={require('../../assets/logo-ecuador.png')} style={styles.logo} resizeMode="contain" />
-          <Text style={styles.title}>Selección Ecuatoriana de Fútbol</Text>
-          <Text style={styles.subtitle}>La Tri</Text>
-        </View>
-
-        {/* Información básica */}
-        <View style={styles.infoBox}>
-          <Text style={styles.infoItem}><Text style={styles.infoLabel}>Confederación: </Text>CONMEBOL</Text>
-          <Text style={styles.infoItem}><Text style={styles.infoLabel}>Entrenador: </Text>Sebastián Beccacece</Text>
-          <Text style={styles.infoItem}><Text style={styles.infoLabel}>Estadio: </Text>Estadio Rodrigo Paz Delgado (Quito)</Text>
-          <Text style={styles.infoItem}><Text style={styles.infoLabel}>Apodo: </Text>La Tri</Text>
-        </View>
-
-        {/* Botón interactivo pequeño y elegante */}
-        <TouchableOpacity style={styles.cheerButton} onPress={handleAlentar} activeOpacity={0.85}>
-          <Text style={styles.cheerText}>Alentar a La Tri</Text>
-        </TouchableOpacity>
-
-        {/* Datos destacados en 2 columnas */}
-        <Text style={styles.sectionTitle}>Datos destacados</Text>
-        <View style={styles.highlightsRow}>
-          {highlights.map((h) => (
-            <HighlightCard key={h.id} item={h} />
-          ))}
-        </View>
-
-        {/* Convocados */}
-        <Text style={styles.sectionTitle}>Convocados de La Tri</Text>
-        {/* Mostrar por sección en orden: Arqueros, Defensas, Mediocampistas, Delanteros */}
-        {['Arqueros', 'Defensas', 'Mediocampistas', 'Delanteros'].map((section) => (
-          grouped[section] ? (
-            <View key={section} style={styles.positionSection}>
-              <Text style={styles.positionTitle}>{section}</Text>
-              <View style={styles.playersRow}>
-                {grouped[section].map((p) => (
-                  <PlayerCard key={p.id} player={p} />
-                ))}
-              </View>
+      <ScrollView style={styles.scroll} contentContainerStyle={styles.container}>
+        {activeTab === 'home' ? (
+          <>
+            {/* Encabezado con logo y títulos */}
+            <View style={styles.headerBox}>
+              <Text style={styles.title}>Segundo Lugar</Text>
+              <Image source={require('../../assets/Argentina.png')} style={styles.logo} resizeMode="contain" />
+              <Text style={styles.title}>Selección Argentina de Fútbol</Text>
+              <Text style={styles.subtitle}>La Albiceleste</Text>
             </View>
-          ) : null
-        ))}
 
-        {/* Espacio final */}
-        <View style={{ height: 36 }} />
+            {/* Información básica */}
+            <View style={styles.infoBox}>
+              <Text style={styles.infoItem}><Text style={styles.infoLabel}>Confederación: </Text>CONMEBOL</Text>
+              <Text style={styles.infoItem}><Text style={styles.infoLabel}>Entrenador: </Text>L.Scaloni</Text>
+              <Text style={styles.infoItem}><Text style={styles.infoLabel}>Capitan: </Text>L.Messi</Text>
+              <Text style={styles.infoItem}><Text style={styles.infoLabel}>Estadio: </Text>Estadio Monumental</Text>
+              <Text style={styles.infoItem}><Text style={styles.infoLabel}>Apodo: </Text>La Albiceleste</Text>
+
+            </View>
+
+            <View style={{ height: 36 }} />
+          </>
+        ) : activeTab === 'espana' ? (
+          <>
+            {/* Encabezado con logo y títulos */}
+            <View style={styles.headerBox}>
+              <Text style={styles.title}>Campeona del Mundo</Text>
+              <Image source={require('../../assets/España.png')} style={styles.logo} resizeMode="contain" />
+              <Text style={styles.title}>Selección España de Fútbol</Text>
+              <Text style={styles.subtitle}>La Roja</Text>
+            </View>
+
+            {/* Información básica */}
+            <View style={styles.infoBox}>
+              <Text style={styles.infoItem}><Text style={styles.infoLabel}>Confederación: </Text>UEFA</Text>
+              <Text style={styles.infoItem}><Text style={styles.infoLabel}>Entrenador: </Text>L. de la Fuente</Text>
+              <Text style={styles.infoItem}><Text style={styles.infoLabel}>Estadio: </Text>Santiago Bernabéu</Text>
+              <Text style={styles.infoItem}><Text style={styles.infoLabel}>Apodo: </Text>La Roja</Text>
+
+            </View>
+
+            <View style={{ height: 36 }} />
+          </>
+            
+        ) : (
+          <View style={styles.contentCard}>
+            <Text style={styles.sectionTitle}>Acerca de</Text>
+            <Text style={styles.contentText}>Marlon Tituaña</Text>
+          </View>
+        )}
       </ScrollView>
+
+      <View style={styles.bottomNav}>
+        {tabs.map((tab) => {
+          const isActive = activeTab === tab.key;
+          return (
+            <TouchableOpacity
+              key={tab.key}
+              style={[styles.navItem, isActive && styles.navItemActive]}
+              onPress={() => setActiveTab(tab.key)}
+            >
+              <Text style={[styles.navText, isActive && styles.navTextActive]}>{tab.label}</Text>
+            </TouchableOpacity>
+          );
+        })}
+      </View>
     </View>
   );
 }
@@ -77,11 +106,43 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#F8F8F8',
   },
+  scroll: {
+    flex: 1,
+  },
   container: {
     paddingTop: 8,
     paddingHorizontal: 16,
-    paddingBottom: 24,
+    paddingBottom: 90,
     backgroundColor: '#F8F8F8',
+  },
+  bottomNav: {
+    flexDirection: 'row',
+    backgroundColor: '#fff',
+    borderTopWidth: 1,
+    borderTopColor: '#e5e5e5',
+    paddingTop: 8,
+    paddingBottom: 50,
+    paddingHorizontal: 10,
+    marginBottom: 0,
+    position: 'relative',
+  },
+  navItem: {
+    flex: 1,
+    paddingVertical: 8,
+    alignItems: 'center',
+    borderRadius: 20,
+  },
+  navItemActive: {
+    backgroundColor: '#f3f3f3',
+  },
+  navText: {
+    color: '#666',
+    fontWeight: '600',
+    fontSize: 14,
+  },
+  navTextActive: {
+    color: '#a00000',
+    fontWeight: '700',
   },
   headerBox: {
     alignItems: 'center',
@@ -152,6 +213,21 @@ const styles = StyleSheet.create({
     fontWeight: '800',
     marginBottom: 8,
     marginTop: 8,
+  },
+  contentCard: {
+    backgroundColor: '#fff',
+    borderRadius: 12,
+    padding: 16,
+    shadowColor: '#000',
+    shadowOpacity: 0.08,
+    shadowOffset: { width: 0, height: 4 },
+    shadowRadius: 8,
+    elevation: 3,
+  },
+  contentText: {
+    fontSize: 15,
+    color: '#333',
+    lineHeight: 22,
   },
   highlightsRow: {
     flexDirection: 'row',
