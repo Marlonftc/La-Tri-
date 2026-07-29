@@ -87,14 +87,7 @@ export default function HomeScreen() {
               <Text style={styles.subtitle}>Sistemas de Información</Text>
             </View>
 
-            {/* Información básica */}
-            <View style={styles.infoBox}>
-              <Text style={styles.infoItem}><Text style={styles.infoLabel}>Confederación: </Text>UEFA</Text>
-              <Text style={styles.infoItem}><Text style={styles.infoLabel}>Entrenador: </Text>L. de la Fuente</Text>
-              <Text style={styles.infoItem}><Text style={styles.infoLabel}>Estadio: </Text>Santiago Bernabéu</Text>
-              <Text style={styles.infoItem}><Text style={styles.infoLabel}>Apodo: </Text>La Roja</Text>
-
-            </View>
+            
 
             <View style={{ height: 36 }} />
           </>
