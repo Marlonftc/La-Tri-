@@ -77,8 +77,29 @@ export default function HomeScreen() {
             
         ) : (
           <View style={styles.contentCard}>
-            <Text style={styles.sectionTitle}>Acerca de</Text>
-            <Text style={styles.contentText}>Marlon Tituaña</Text>
+            
+          <>
+            {/* Encabezado con logo y títulos */}
+            <View style={styles.headerBox}>
+              <Text style={styles.title}>Marlon Tituaña</Text>
+              <Image source={require('../../assets/Marlon.jpeg')} style={styles.logo} resizeMode="contain" />
+              <Text style={styles.title}>Estudiante de La Universidad Central</Text>
+              <Text style={styles.subtitle}>Sistemas de Información</Text>
+            </View>
+
+            {/* Información básica */}
+            <View style={styles.infoBox}>
+              <Text style={styles.infoItem}><Text style={styles.infoLabel}>Confederación: </Text>UEFA</Text>
+              <Text style={styles.infoItem}><Text style={styles.infoLabel}>Entrenador: </Text>L. de la Fuente</Text>
+              <Text style={styles.infoItem}><Text style={styles.infoLabel}>Estadio: </Text>Santiago Bernabéu</Text>
+              <Text style={styles.infoItem}><Text style={styles.infoLabel}>Apodo: </Text>La Roja</Text>
+
+            </View>
+
+            <View style={{ height: 36 }} />
+          </>
+          
+          
           </View>
         )}
       </ScrollView>
