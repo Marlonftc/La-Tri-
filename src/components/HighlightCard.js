@@ -5,7 +5,7 @@ import { View, Text, StyleSheet, Dimensions } from 'react-native';
 export default function HighlightCard({ item }) {
   const bg = item.bg || '#0033A0';
   const isLightBg = String(bg).toLowerCase() === '#ffd100' || String(bg).toLowerCase() === 'yellow';
-  const textColor = isLightBg ? '#111' : '#fff';
+  const textColor = isLightBg ? '#111' : '#ff71d7';
 
   return (
     <View style={[styles.card, { backgroundColor: bg }]}

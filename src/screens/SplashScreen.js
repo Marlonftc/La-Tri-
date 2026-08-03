@@ -57,12 +57,12 @@ export default function SplashScreen({ onFinish }) {
       {/* Contenido centrado sobre las franjas */}
       <View style={styles.content} pointerEvents="none">
         <Animated.Image
-          source={require('../../assets/España.png')}
+          source={require('../../assets/cne.png')}
           style={[styles.logo, { opacity: opacity, transform: [{ scale: scale }] }]}
           resizeMode="contain"
         />
 
-        <Animated.Text style={[styles.title, { opacity: textOpacity }]}>Somos la Roja</Animated.Text>
+        <Animated.Text style={[styles.title, { opacity: textOpacity }]}>Bienvenido/a</Animated.Text>
       </View>
     </View>
   );
@@ -83,15 +83,15 @@ const styles = StyleSheet.create({
   },
   yellow: {
     flex: 2,
-    backgroundColor: '#ff0000',
+    backgroundColor: '#eeff00',
   },
   blue: {
     flex: 1,
-    backgroundColor: '#ffff04',
+    backgroundColor: '#040539',
   },
   red: {
     flex: 1,
-    backgroundColor: '#ff0000',
+    backgroundColor: '#ff0505',
   },
   content: {
     flex: 1,

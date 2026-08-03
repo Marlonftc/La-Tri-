@@ -11,8 +11,8 @@ export default function HomeScreen() {
 
   const tabs = [
     { key: 'home', label: 'Home' },
-    { key: 'espana', label: 'España' },
-    { key: 'about', label: 'Acerca de ' },
+    { key: 'espana', label: 'Candidatos' },
+    { key: 'about', label: 'Estadísticas ' },
   ];
 
   const handleAlentar = () => {
@@ -35,21 +35,22 @@ export default function HomeScreen() {
           <>
             {/* Encabezado con logo y títulos */}
             <View style={styles.headerBox}>
-              <Text style={styles.title}>Segundo Lugar</Text>
-              <Image source={require('../../assets/Argentina.png')} style={styles.logo} resizeMode="contain" />
-              <Text style={styles.title}>Selección Argentina de Fútbol</Text>
-              <Text style={styles.subtitle}>La Albiceleste</Text>
+              <Text style={styles.title}>Bienvenido Marlon Tituaña</Text>
+              
+            </View>
+            <View style={styles.headerBox}>
+              <Image source={require('../../assets/Parroquia.jpg')} style={styles.logo} resizeMode="contain" />
+              <Text style={styles.title}>Sector la Escuela Atucucho</Text>
             </View>
 
             {/* Información básica */}
-            <View style={styles.infoBox}>
-              <Text style={styles.infoItem}><Text style={styles.infoLabel}>Confederación: </Text>CONMEBOL</Text>
-              <Text style={styles.infoItem}><Text style={styles.infoLabel}>Entrenador: </Text>L.Scaloni</Text>
-              <Text style={styles.infoItem}><Text style={styles.infoLabel}>Capitan: </Text>L.Messi</Text>
-              <Text style={styles.infoItem}><Text style={styles.infoLabel}>Estadio: </Text>Estadio Monumental</Text>
-              <Text style={styles.infoItem}><Text style={styles.infoLabel}>Apodo: </Text>La Albiceleste</Text>
-
-            </View>
+        
+            <Text style={styles.sectionTitle}>Datos Importantes</Text>
+           <View style={styles.highlightsRow}>
+            {highlights.map((h) => (
+            <HighlightCard key={h.id} item={h} />
+          ))}
+        </View>
 
             <View style={{ height: 36 }} />
           </>
@@ -61,15 +62,6 @@ export default function HomeScreen() {
               <Image source={require('../../assets/España.png')} style={styles.logo} resizeMode="contain" />
               <Text style={styles.title}>Selección España de Fútbol</Text>
               <Text style={styles.subtitle}>La Roja</Text>
-            </View>
-
-            {/* Información básica */}
-            <View style={styles.infoBox}>
-              <Text style={styles.infoItem}><Text style={styles.infoLabel}>Confederación: </Text>UEFA</Text>
-              <Text style={styles.infoItem}><Text style={styles.infoLabel}>Entrenador: </Text>L. de la Fuente</Text>
-              <Text style={styles.infoItem}><Text style={styles.infoLabel}>Estadio: </Text>Santiago Bernabéu</Text>
-              <Text style={styles.infoItem}><Text style={styles.infoLabel}>Apodo: </Text>La Roja</Text>
-
             </View>
 
             <View style={{ height: 36 }} />
@@ -173,7 +165,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
   },
   logo: {
-    width: 120,
+    width: 1500,
     height: 120,
     marginBottom: 8,
   },

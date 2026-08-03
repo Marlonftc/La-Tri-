@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "la-roja",
-    "slug": "la-roja",
+    "name": "cne",
+    "slug": "cne",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
