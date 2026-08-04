@@ -3,27 +3,22 @@ export const players = [
   // Arqueros
   {
     id: '1',
-    numero: 1,
-    nombre: 'Hernán Galíndez',
-    posicion: 'Arquero',
-    categoria: 'Arqueros',
-    emoji: '🧤',
+    categoria: 'Candidatos',
+    nombre: 'Pabel Muñoz',
+    posicion: 'Amigos',
   },
   {
     id: '12',
-    numero: 12,
-    nombre: 'Moisés Ramírez',
-    posicion: 'Arquero',
-    categoria: 'Arqueros',
-    emoji: '🧤',
+    categoria: 'Candidatos',
+    nombre: 'Wilson Merino',
+    posicion: 'Imparables',
+
   },
   {
     id: '22',
-    numero: 22,
-    nombre: 'Gonzalo Valle',
-    posicion: 'Arquero',
-    categoria: 'Arqueros',
-    emoji: '🧤',
+    categoria: 'Candidatos',
+    nombre: 'Jorge Yunda',
+    posicion: 'Avanza',
   },
 
   // Defensas

@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, Image, StyleSheet, ScrollView, TouchableOpacity, Alert, StatusBar, Platform } from 'react-native';
-import MapView, { Marker } from 'react-native-maps';
+import { View, Text, Image, StyleSheet, ScrollView, TouchableOpacity, Alert, StatusBar } from 'react-native';
 import PlayerCard from '../components/PlayerCard';
 import HighlightCard from '../components/HighlightCard';
 import players from '../data/players';
@@ -53,34 +52,6 @@ export default function HomeScreen() {
           ))}
         </View>
 
-            {/* Mapa de ubicación del sector */}
-            <Text style={styles.sectionTitle}>Ubicación</Text>
-            {Platform.OS === 'web' ? (
-              <View style={styles.mapaFallback}>
-                <Text style={styles.mapaFallbackTexto}>
-                  El mapa se visualiza en la aplicación móvil.{'\n'}
-                  Sector Atucucho, noroccidente de Quito.
-                </Text>
-              </View>
-            ) : (
-              <View style={styles.mapaBox}>
-                <MapView
-                  style={styles.mapa}
-                  initialRegion={{
-                    latitude: -0.1447,
-                    longitude: -78.5122,
-                    latitudeDelta: 0.01,
-                    longitudeDelta: 0.01,
-                  }}
-                >
-                  <Marker
-                    coordinate={{ latitude: -0.1447, longitude: -78.5122 }}
-                    title="Escuela Atucucho"
-                    description="Sector Atucucho, Quito"
-                  />
-                </MapView>
-              </View>
-            )}
 
             <View style={{ height: 36 }} />
           </>
@@ -194,32 +165,6 @@ const styles = StyleSheet.create({
   navTextActive: {
     color: '#a00000',
     fontWeight: '700',
-  },
-  mapaBox: {
-    height: 260,
-    borderRadius: 12,
-    overflow: 'hidden',
-    marginBottom: 12,
-    elevation: 3,
-  },
-  mapa: {
-    width: '100%',
-    height: '100%',
-  },
-  mapaFallback: {
-    height: 120,
-    borderRadius: 12,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: 16,
-    marginBottom: 12,
-    elevation: 2,
-  },
-  mapaFallbackTexto: {
-    fontSize: 14,
-    color: '#666',
-    textAlign: 'center',
   },
   headerBox: {
     alignItems: 'center',

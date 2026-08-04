@@ -1,10 +1,17 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
-// PlayerCard: tarjeta ancha con nombre y partido
+// PlayerCard rediseñada: 2 columnas, número en fila superior (no absolute)
 export default function PlayerCard({ player }) {
   return (
     <View style={styles.card}>
+      <View style={styles.topRow}>
+        <Text style={styles.leftSpace} />
+        <View style={styles.numBoxInline}>
+          <Text style={styles.numText}>#{player.numero}</Text>
+        </View>
+      </View>
+
       <View style={styles.body}>
         <Text style={styles.name} numberOfLines={2} ellipsizeMode="tail">{player.nombre}</Text>
         <Text style={styles.position}>{player.posicion || player.position || ''}</Text>
@@ -13,8 +20,7 @@ export default function PlayerCard({ player }) {
   );
 }
 
-// Tarjeta ancha: una por fila, más alta y con texto más grande
-const cardWidth = '100%';
+const cardWidth = '48%';
 
 const styles = StyleSheet.create({
   card: {
@@ -22,11 +28,9 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFF9F0',
     borderLeftWidth: 6,
     borderLeftColor: '#FFD100',
-    borderRadius: 20,
-    padding: 20,
-    marginBottom: 14,
-    minHeight: 120,
-    justifyContent: 'center',
+    borderRadius: 30,
+    padding: 10,
+    marginBottom: 10,
     // layout vertical: topRow then body
     flexDirection: 'column',
     alignItems: 'flex-start',
@@ -44,8 +48,8 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   leftSpace: {
-    width: 40,
-    height: 40,
+    width: 800,
+    height: 100,
   },
   numBoxInline: {
     backgroundColor: '#0033A0',
@@ -62,13 +66,13 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   name: {
-    fontSize: 22,
-    fontWeight: '800',
+    fontSize: 14,
+    fontWeight: '700',
     color: '#111',
-    marginBottom: 6,
+    marginBottom: 4,
   },
   position: {
-    fontSize: 16,
+    fontSize: 11,
     color: '#0033A0',
     fontWeight: '700',
   },
